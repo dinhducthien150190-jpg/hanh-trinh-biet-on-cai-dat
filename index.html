@@ -39,6 +39,15 @@ button,.button{display:block;width:100%;border:0;border-radius:14px;background:v
 <p class="small">Lưu ý: biểu tượng là lối mở nhanh. Ứng dụng chính vẫn chạy tại Google Apps Script và cần Internet. Không nhập mật khẩu vào trang cài đặt này; chỉ đăng nhập tại ứng dụng chính.</p>
 </main>
 <script>
+const APP_URL = "https://script.google.com/macros/s/AKfycbzWbMUVpG5hwYJriCu1BsVCCLkOyQ1iUX7vljQAKazBnbx_ll_98DcP4Hbxc57oByoR/exec";
+
+const isInstalledApp =
+  window.matchMedia("(display-mode: standalone)").matches ||
+  window.navigator.standalone === true;
+
+if (isInstalledApp) {
+  window.location.replace(APP_URL);
+}
 let deferredPrompt=null;
 const ua=navigator.userAgent;
 const isIOS=/iPhone|iPad|iPod/i.test(ua);
