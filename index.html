@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087f5b">
+<meta name="description" content="Cài biểu tượng Hành trình biết ơn trên điện thoại hoặc máy tính.">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<title>Cài Hành trình biết ơn</title>
+<style>
+:root{color-scheme:light;--green:#087f5b;--dark:#07523e;--cream:#fff9e8}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(145deg,#e9fff3,#fff9e8);color:#17372d;min-height:100vh;display:grid;place-items:center;padding:20px}
+main{width:min(100%,520px);background:white;border-radius:24px;padding:26px;box-shadow:0 12px 38px #174b3220}
+header{display:flex;align-items:center;gap:15px}.logo{width:76px;height:76px;flex:none}h1{font-size:25px;line-height:1.2;margin:0;color:var(--dark)}.sub{margin:7px 0 0;color:#587267}
+.notice{margin:22px 0;padding:14px;border-radius:14px;background:#eefaf3;line-height:1.5}
+button,.button{display:block;width:100%;border:0;border-radius:14px;background:var(--green);color:white;font-size:17px;font-weight:700;padding:15px;text-align:center;text-decoration:none;cursor:pointer;margin-top:12px}
+.secondary{background:#eaf6ef;color:var(--dark)}h2{font-size:18px;margin:23px 0 8px}ol{padding-left:23px;line-height:1.65}li{margin:7px 0}.small{font-size:13px;color:#61776d;line-height:1.5}.hidden{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<header><img class="logo" src="./icon.svg" alt=""><div><h1>Hành trình biết ơn</h1><p class="sub">Thêm biểu tượng vào màn hình thiết bị</p></div></header>
+<div class="notice" id="intro">Trang này giúp em tạo biểu tượng mở nhanh ứng dụng. Vì mỗi thiết bị có quy định riêng, em cần xác nhận thêm một bước trên điện thoại hoặc máy tính.</div>
+<button id="install" class="hidden">Cài đặt biểu tượng</button>
+<a class="button" id="openApp" href="https://script.google.com/macros/s/AKfycbzWbMUVpG5hwYJriCu1BsVCCLkOyQ1iUX7vljQAKazBnbx_ll_98DcP4Hbxc57oByoR/exec">Mở ứng dụng Hành trình biết ơn</a>
+<section id="android">
+<h2>📱 Điện thoại Android</h2>
+<ol><li>Mở trang này bằng Chrome.</li><li>Nếu có nút <b>Cài đặt biểu tượng</b>, nhấn nút đó rồi xác nhận.</li><li>Nếu không có nút cài đặt, mở menu <b>⋮</b> của Chrome, chọn <b>Thêm vào màn hình chính</b> hoặc <b>Cài đặt ứng dụng</b>.</li></ol>
+</section>
+<section id="ios" class="hidden">
+<h2>📱 iPhone / iPad</h2>
+<ol><li>Mở trang này bằng Safari.</li><li>Nhấn nút <b>Chia sẻ</b>.</li><li>Chọn <b>Thêm vào MH chính</b> rồi nhấn <b>Thêm</b>.</li></ol>
+</section>
+<section id="desktop" class="hidden">
+<h2>💻 Máy tính</h2>
+<ol><li>Mở trang này bằng Chrome hoặc Edge.</li><li>Nhấn nút <b>Cài đặt biểu tượng</b> nếu xuất hiện.</li><li>Nếu không có, mở menu trình duyệt và tìm mục cài đặt trang dưới dạng ứng dụng hoặc tạo lối tắt.</li></ol>
+</section>
+<p class="small">Lưu ý: biểu tượng là lối mở nhanh. Ứng dụng chính vẫn chạy tại Google Apps Script và cần Internet. Không nhập mật khẩu vào trang cài đặt này; chỉ đăng nhập tại ứng dụng chính.</p>
+</main>
+<script>
+let deferredPrompt=null;
+const ua=navigator.userAgent;
+const isIOS=/iPhone|iPad|iPod/i.test(ua);
+const isAndroid=/Android/i.test(ua);
+document.getElementById('ios').classList.toggle('hidden',!isIOS);
+document.getElementById('android').classList.toggle('hidden',isIOS||!isAndroid);
+document.getElementById('desktop').classList.toggle('hidden',isIOS||isAndroid);
+window.addEventListener('beforeinstallprompt',e=>{
+ e.preventDefault(); deferredPrompt=e;
+ const b=document.getElementById('install'); b.classList.remove('hidden');
+});
+document.getElementById('install').addEventListener('click',async()=>{
+ if(!deferredPrompt)return;
+ deferredPrompt.prompt();
+ await deferredPrompt.userChoice;
+ deferredPrompt=null;
+ document.getElementById('install').classList.add('hidden');
+});
+if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
