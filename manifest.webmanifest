@@ -4,7 +4,7 @@
   "short_name": "Biết ơn",
   "description": "Mở nhanh ứng dụng Hành trình biết ơn",
   "start_url": "./",
-  "scope": "./",
+  "scope": "./?launch=app",
   "display": "standalone",
   "background_color": "#fff9e8",
   "theme_color": "#087f5b",
