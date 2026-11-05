@@ -5,32 +5,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#087f5b">
-  <title>Hành trình biết ơn</title>
+  <meta name="description" content="Hướng dẫn cài đặt ứng dụng Hành trình biết ơn">
+  <title>Hành trình biết ơn - Hướng dẫn cài đặt</title>
 
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Arial, sans-serif;
-      color: #24443b;
-      background: linear-gradient(135deg, #fff9e8, #e2f5eb);
+      padding: 22px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 22px;
+      font-family: Arial, sans-serif;
+      color: #24443b;
+      background: linear-gradient(135deg, #fff9e8, #e2f5eb);
     }
 
     .card {
       width: 100%;
       max-width: 520px;
-      background: white;
-      padding: 30px 24px;
+      padding: 28px 22px;
       border-radius: 24px;
+      background: #ffffff;
       box-shadow: 0 12px 40px #174b3218;
       text-align: center;
     }
@@ -47,75 +50,48 @@
     }
 
     p {
-      line-height: 1.65;
       color: #53685f;
+      line-height: 1.65;
     }
 
     .button {
       display: block;
       width: 100%;
-      border: 0;
-      border-radius: 13px;
       padding: 15px;
-      margin-top: 14px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 13px;
+      background: #087f5b;
+      color: white;
       font-size: 16px;
       font-weight: bold;
       text-decoration: none;
       cursor: pointer;
     }
 
-    .primary {
-      background: #087f5b;
-      color: white;
-    }
-
-    .secondary {
-      background: #e8f5ee;
-      color: #087f5b;
-    }
-
     .guide {
       margin-top: 24px;
-      padding: 16px;
-      text-align: left;
-      background: #f6faf7;
+      padding: 18px;
       border-radius: 15px;
+      background: #f4faf6;
+      text-align: left;
     }
 
     .guide h2 {
-      font-size: 18px;
       color: #087f5b;
+      font-size: 19px;
       margin-top: 0;
     }
 
     .guide p {
-      margin-bottom: 10px;
+      margin-bottom: 16px;
     }
 
     .note {
-      font-size: 13px;
       margin-top: 20px;
-    }
-
-    #installBtn {
-      display: none;
+      font-size: 13px;
     }
   </style>
-
-  <script>
-    const APP_URL =
-      "https://script.google.com/macros/s/AKfycbzWbMUVpG5hwYJriCu1BsVCCLkOyQ1iUX7vljQAKazBnbx_ll_98DcP4Hbxc57oByoR/exec";
-
-    const isStandalone =
-      window.matchMedia("(display-mode: standalone)").matches ||
-      window.matchMedia("(display-mode: window-controls-overlay)").matches ||
-      window.navigator.standalone === true;
-
-    // Chỉ chuyển hướng khi trang được mở ở chế độ ứng dụng độc lập.
-    if (isStandalone) {
-      window.location.replace(APP_URL);
-    }
-  </script>
 </head>
 
 <body>
@@ -129,64 +105,41 @@
       và lan tỏa những điều tốt đẹp.
     </p>
 
-    <button id="installBtn" class="button primary">
-      📲 Cài đặt ứng dụng
-    </button>
-
-    <a class="button primary" id="openBtn"
-       href="https://script.google.com/macros/s/AKfycbzWbMUVpG5hwYJriCu1BsVCCLkOyQ1iUX7vljQAKazBnbx_ll_98DcP4Hbxc57oByoR/exec">
-      Mở ứng dụng
+    <a
+      class="button"
+      href="https://script.google.com/macros/s/AKfycbzWbMUVpG5hwYJriCu1BsVCCLkOyQ1iUX7vljQAKazBnbx_ll_98DcP4Hbxc57oByoR/exec"
+      target="_blank"
+      rel="noopener"
+    >
+      MỞ ỨNG DỤNG HÀNH TRÌNH BIẾT ƠN
     </a>
 
     <section class="guide">
       <h2>📱 Hướng dẫn cài đặt</h2>
 
       <p>
-        <strong>Android:</strong> Mở bằng Chrome, nhấn dấu ⋮,
-        chọn “Thêm vào màn hình chính” hoặc “Cài đặt ứng dụng”
-        nếu có.
+        <strong>Android:</strong> Mở trang này bằng Chrome,
+        nhấn dấu ba chấm ⋮, chọn “Thêm vào màn hình chính”
+        hoặc “Cài đặt ứng dụng” nếu có.
       </p>
 
       <p>
-        <strong>iPhone/iPad:</strong> Mở bằng Safari, nhấn nút
-        Chia sẻ, chọn “Thêm vào MH chính”.
+        <strong>iPhone/iPad:</strong> Mở trang này bằng Safari,
+        nhấn nút Chia sẻ, chọn “Thêm vào MH chính”, sau đó
+        nhấn “Thêm”.
       </p>
 
       <p>
-        <strong>Máy tính Windows:</strong> Mở bằng Edge hoặc Chrome.
-        Tìm mục cài đặt ứng dụng trong menu trình duyệt nếu được hỗ trợ.
+        <strong>Máy tính Windows:</strong> Mở trang bằng Edge
+        hoặc Chrome. Tìm mục cài đặt ứng dụng trong menu
+        trình duyệt nếu được hỗ trợ.
       </p>
     </section>
 
     <p class="note">
-      Sau khi cài đặt, hãy mở bằng biểu tượng trên màn hình
-      để chuyển thẳng vào ứng dụng.
+      Sau khi cài, hãy thử mở bằng biểu tượng trên màn hình.
+      Cách mở trực tiếp ứng dụng có thể khác nhau tùy thiết bị.
     </p>
   </main>
-
-  <script>
-    let installPrompt = null;
-
-    const installBtn = document.getElementById("installBtn");
-
-    window.addEventListener("beforeinstallprompt", (event) => {
-      event.preventDefault();
-      installPrompt = event;
-      installBtn.style.display = "block";
-    });
-
-    installBtn.addEventListener("click", async () => {
-      if (!installPrompt) return;
-
-      installPrompt.prompt();
-      await installPrompt.userChoice;
-      installPrompt = null;
-      installBtn.style.display = "none";
-    });
-
-    window.addEventListener("appinstalled", () => {
-      installBtn.style.display = "none";
-    });
-  </script>
 </body>
 </html>
